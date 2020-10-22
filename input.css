@@ -1,0 +1,117 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+  background-color: #eee;
+  margin: 0;
+  background-image: url(https://sleeknote.com/wp-content/uploads/2017/10/Why-People-Unsubscribe-from-Emails-Wordpress.jpg);
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 15cm;
+  overflow: hidden;
+}
+
+.form {
+  width: auto;
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+}
+
+.form input {
+  width: 200px;
+  height: 50%;
+  color: #595f6e;
+  padding-top: 20px;
+  border: none;
+  outline: none;
+}
+
+.form label {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 200px;
+  height: 50%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+
+.form label::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 3px solid #e69acf;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.content-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.3s ease;
+  color: #888;
+}
+
+.form input:hover + .label-name .content-name,
+.form input:valid + .label-name .content-name {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: #e69acf;
+}
+
+.form input:hover + .label-name::after,
+.form input:valid + .label-name::after {
+  transform: translateX(0%);
+}
+
+.form input:focus + .label-name .content-name,
+.form input:valid + .label-name .content-name {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: #e69acf;
+}
+
+.form input:focus + .label-name::after,
+.form input:valid + .label-name::after {
+  transform: translateX(0%);
+}
+
+.submitButton {
+  width: 96px;
+  height: 32px;
+  background-color: #e69acf;
+  text-decoration: none;
+  border: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1em;
+  box-sizing: border-box;
+  margin-left: 0.5em;
+  margin-top: 17px;
+  cursor: pointer;
+  border-radius: 0.35em;
+}
+
+.submitButton:hover {
+  background-color: #d46ab4;
+}
+
+input {
+  background-color: #d2efff;
+}
+
+.columnCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15cm;
+}

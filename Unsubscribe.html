@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://flirtwithme.me/?c=au -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./input.css">
+    <link rel="icon" href="http://flirtwithme.me/favicon.ico">
+
+    <title>Unsubscribe</title>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.980.0">
+    <header></header>
+    <div class="columnCenter">
+      <h2>Unsubscribe from this List</h2>
+      <p>
+        When you click the button below you will be unsubscribed from receiving all future emails sent to this List.
+      </p>
+      <h5 style="color: red;">This action is irreversible.</h5>
+      <div class="form">
+        <input id="unsub" type="text" name="name" autocomplete="off" required="">
+        <label for="name" class="label-name">
+          <span class="content-name">Enter your e-mail adress</span>
+        </label>
+        <button class="submitButton" onclick="sendRequest()">OK</button>
+      </div>
+      <br>
+      <span id="success" style="display: none; color: green; font-size: 12px;">Okay! No more e-mails for you.</span>
+    </div>
+  
+    <footer></footer>
+  
+
+
+<script>
+  function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(
+      /[?&]+([^=&]+)=([^&]*)/gi,
+      function(m, key, value) {
+        vars[key] = value;
+      }
+    );
+    return vars;
+  }
+
+  function postData() {
+    var country = getUrlVars()["c"].toUpperCase();
+    console.log(country);
+
+    const url = `api/unsub/${country}`;
+
+    const data = {
+      email: document.getElementById("unsub").value
+    };
+
+    return fetch(url, {
+      method: "POST",
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "omit", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json"
+      },
+      //redirect: 'follow',
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    }).then(res => res.json());
+  }
+
+  function sendRequest() {
+    postData().then(() => {
+      document.getElementById("success").style.display = "block";
+    });
+  }
+</script>
+</body></html>
